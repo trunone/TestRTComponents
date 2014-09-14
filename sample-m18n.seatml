@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<seatml>
+  <general name="sample">
+    <agent name="speechin" type="rtcin" datatype="TimedString" />
+    <agent name="speechout" type="rtcout" datatype="TimedString" />
+  </general>
+  <state name="OPEN">
+    <rule>
+      <key>おはよう</key>
+      <command host="speechout">おはよう</command>
+    </rule>
+    <rule>
+      <key>こんにちは</key>
+      <command host="speechout">こんにちは</command>
+    </rule>
+    <rule>
+      <key>こんばんは</key>
+      <command host="speechout">こんばんは</command>
+    </rule>
+    <rule>
+      <key>バイバイ</key>
+      <command host="speechout">バイバイ</command>
+    </rule>
+    <rule>
+      <key>さようなら</key>
+      <command host="speechout">さようなら</command>
+    </rule>
+    <rule>
+      <key>hello</key>
+      <command host="speechout">ハロー</command>
+    </rule>
+    <rule>
+      <key>good afternoon</key>
+      <command host="speechout">グッドアフタヌーン</command>
+    </rule>
+    <rule>
+      <key>good evening</key>
+      <command host="speechout">グッドイブニング</command>
+    </rule>
+    <rule>
+      <key>bye</key>
+      <key>good bye</key>
+      <command host="speechout">バイバイ</command>
+    </rule>
+  </state>
+</seatml>
+
