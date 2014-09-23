@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lexicon version="1.0"
+     xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon
+                         http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
+     alphabet="x-ARPAbet" xml:lang="en">
+  <lexeme>
+    <grapheme>right</grapheme>
+    <phoneme>{{x-ARPAbet|r ay t}}</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>remember</grapheme>
+    <phoneme>{{x-ARPAbet|r ix m eh m b er}}</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>turn</grapheme>
+    <phoneme>{{x-ARPAbet|t er n}}</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>stop</grapheme>
+    <phoneme>{{x-ARPAbet|s t aa p}}</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>back</grapheme>
+    <phoneme>{{x-ARPAbet|b ae k}}</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>forward</grapheme>
+    <phoneme>{{x-ARPAbet|f ao r w er d}}</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>go</grapheme>
+    <phoneme>{{x-ARPAbet|g ow}}</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>position</grapheme>
+    <phoneme>{{x-ARPAbet|p ax z ih sh ax n}}</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>to</grapheme>
+    <phoneme>{{x-ARPAbet|t uw}}</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>left</grapheme>
+    <phoneme>{{x-ARPAbet|l eh f t}}</phoneme>
+  </lexeme>
+</lexicon>

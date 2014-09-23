@@ -5,16 +5,18 @@
                              http://www.w3.org/TR/speech-grammar/grammar.xsd"
          xml:lang="en"
          version="1.0" mode="voice" root="command">
- 
-  <lexicon uri="sample-en-lex.xml"/>
- 
+
+  <lexicon uri="command-en-lex.xml"/>
+
   <rule id="command">
     <one-of>
-      <item>hello</item>
-      <item>good afternoon</item>
-      <item>good evening</item>
-      <item>good bye</item>
-      <item>bye</item>
+      <item>go forward</item>
+      <item>go back</item>
+      <item>turn left</item>
+      <item>turn right</item>
+      <item>stop</item>
+      <item>remember position</item>
+      <item>go to position</item>
     </one-of>
   </rule>
 </grammar>

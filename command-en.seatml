@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<seatml>
+  <general name="sample">
+    <agent name="speechin" type="rtcin" datatype="TimedString" />
+    <agent name="commandout" type="rtcout" datatype="TimedString" />
+  </general>
+  <state name="OPEN">
+  <rule>
+    <key>hello</key>
+      <command host="commandout">hello</command>
+    </rule>
+    <rule>
+      <key>go forward</key>
+      <command host="commandout">forward</command>
+    </rule>
+    <rule>
+      <key>go back</key>
+      <command host="commandout">back</command>
+    </rule>
+    <rule>
+      <key>turn left</key>
+      <command host="commandout">left</command>
+    </rule>
+    <rule>
+      <key>turn right</key>
+      <command host="commandout">right</command>
+    </rule>
+    <rule>
+      <key>stop</key>
+      <command host="commandout">stop</command>
+    </rule>
+    <rule>
+      <key>remember position</key>
+      <command host="commandout">save</command>
+    </rule>
+    <rule>
+      <key>go to position</key>
+      <command host="commandout">load</command>
+    </rule>
+    <rule>
+      <key>bye</key>
+      <command host="commandout">bye</command>
+    </rule>
+  </state>
+</seatml>
+
