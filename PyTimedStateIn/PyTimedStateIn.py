@@ -3,8 +3,8 @@
 # -*- Python -*-
 
 """
- @file PyTimedPose2DConsoleOut.py
- @brief display TimedPose2D Data
+ @file PyTimedStateIn.py
+ @brief ModuleDescription
  @date $Date$
 
 
@@ -30,12 +30,12 @@ import OpenRTM_aist
 
 # This module's spesification
 # <rtc-template block="module_spec">
-pytimedpose2dconsoleout_spec = ["implementation_id", "PyTimedPose2DConsoleOut",
-                 "type_name",         "PyTimedPose2DConsoleOut",
-                 "description",       "display TimedPose2D Data",
+pytimedstatein_spec = ["implementation_id", "PyTimedStateIn",
+                 "type_name",         "PyTimedStateIn",
+                 "description",       "ModuleDescription",
                  "version",           "1.0.0",
-                 "vendor",            "YosukeNihei",
-                 "category",          "TEST ",
+                 "vendor",            "Intelligent Systems Lab.",
+                 "category",          "Test",
                  "activity_type",     "STATIC",
                  "max_instance",      "1",
                  "language",          "Python",
@@ -44,11 +44,11 @@ pytimedpose2dconsoleout_spec = ["implementation_id", "PyTimedPose2DConsoleOut",
 # </rtc-template>
 
 ##
-# @class PyTimedPose2DConsoleOut
-# @brief display TimedPose2D Data
+# @class PyTimedStateIn
+# @brief ModuleDescription
 #
 #
-class PyTimedPose2DConsoleOut(OpenRTM_aist.DataFlowComponentBase):
+class PyTimedStateIn(OpenRTM_aist.DataFlowComponentBase):
 
     ##
     # @brief constructor
@@ -57,10 +57,10 @@ class PyTimedPose2DConsoleOut(OpenRTM_aist.DataFlowComponentBase):
     def __init__(self, manager):
         OpenRTM_aist.DataFlowComponentBase.__init__(self, manager)
 
-        self._d_TimedPose2D = RTC.TimedPose2D(RTC.Time(0,0),RTC.Pose2D(RTC.Point2D(0,0),0))
+        self._d_timed_state = RTC.TimedState(RTC.Time(0,0),0)
         """
         """
-        self._TimedPose2DIn = OpenRTM_aist.InPort("TimedPose2Ddata", self._d_TimedPose2D)
+        self._timed_stateOut = OpenRTM_aist.OutPort("timed_state", self._d_timed_state)
 
 
 
@@ -85,17 +85,15 @@ class PyTimedPose2DConsoleOut(OpenRTM_aist.DataFlowComponentBase):
         # Bind variables and configuration variable
 
         # Set InPort buffers
-        self.addInPort("TimedPose2Ddata",self._TimedPose2DIn)
 
         # Set OutPort buffers
+        self.addOutPort("timed_state",self._timed_stateOut)
 
         # Set service provider to Ports
 
         # Set service consumers to Ports
 
         # Set CORBA Service Ports
-
-        print "onInitialized"
 
         return RTC.RTC_OK
 
@@ -151,8 +149,6 @@ class PyTimedPose2DConsoleOut(OpenRTM_aist.DataFlowComponentBase):
         #
     def onActivated(self, ec_id):
 
-        print "onActinavated"
-
         return RTC.RTC_OK
 
         ##
@@ -167,8 +163,6 @@ class PyTimedPose2DConsoleOut(OpenRTM_aist.DataFlowComponentBase):
         #
     def onDeactivated(self, ec_id):
 
-        print "onDeactivated"
-
         return RTC.RTC_OK
 
         ##
@@ -182,15 +176,10 @@ class PyTimedPose2DConsoleOut(OpenRTM_aist.DataFlowComponentBase):
         #
         #
     def onExecute(self, ec_id):
-        if self._TimedPose2DIn.isNew():
-            self._d_TimedPose2D = self._TimedPose2DIn.read()
+        print("Input:")
+        self._d_timed_state.data = int(sys.stdin.readline())
 
-    #print "X: "+str(self._d_TimedPose2D.data.position.x) + ", " \
-    #        + "Y: "+str(self._d_TimedPose2D.data.position.y) + ", " + \
-    #        "Angle: " + str(self._d_TimedPose2D.data.heading)
-            print "X: "+repr(self._d_TimedPose2D.data.position.x).rjust(2) + ", " \
-                    + "Y: "+repr(self._d_TimedPose2D.data.position.y).rjust(3) + ", " + \
-                    "Angle: " + repr(self._d_TimedPose2D.data.heading).rjust(4)
+        self._timed_stateOut.write()
 
         return RTC.RTC_OK
 
@@ -268,17 +257,17 @@ class PyTimedPose2DConsoleOut(OpenRTM_aist.DataFlowComponentBase):
 
 
 
-def PyTimedPose2DConsoleOutInit(manager):
-    profile = OpenRTM_aist.Properties(defaults_str=pytimedpose2dconsoleout_spec)
+def PyTimedStateInInit(manager):
+    profile = OpenRTM_aist.Properties(defaults_str=pytimedstatein_spec)
     manager.registerFactory(profile,
-                            PyTimedPose2DConsoleOut,
+                            PyTimedStateIn,
                             OpenRTM_aist.Delete)
 
 def MyModuleInit(manager):
-    PyTimedPose2DConsoleOutInit(manager)
+    PyTimedStateInInit(manager)
 
     # Create a component
-    comp = manager.createComponent("PyTimedPose2DConsoleOut")
+    comp = manager.createComponent("PyTimedStateIn")
 
 def main():
     mgr = OpenRTM_aist.Manager.init(sys.argv)
